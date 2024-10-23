@@ -19,13 +19,13 @@
         "symfony/routing": "^7.0"
     },
     "replace": {
-        "flyimg/api": "self.version",
-        "flyimg/providers": "self.version"
+        "silex/api": "self.version",
+        "silex/providers": "self.version"
     },
     "autoload": {
-        "psr-4": { "Flyimg\\Silex\\": "src/Flyimg/Silex" }
+        "psr-4": { "Silex\\": "src/Silex" }
     },
     "autoload-dev" : {
-        "psr-4": { "Flyimg\\Silex\\Tests\\" : "tests/Flyimg/Silex/Tests" }
+        "psr-4": { "Silex\\Tests\\" : "tests/Silex/Tests" }
     }
 }
