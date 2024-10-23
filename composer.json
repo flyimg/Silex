@@ -1,0 +1,31 @@
+{
+    "name": "flyimg/silex",
+    "description": "An adaptation of the Silex micro-framework for Flyimg needs",
+    "keywords": ["microframework"],
+    "homepage": "https://github.com/flyimg/silex",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sadok Ferjani",
+            "email": "sadoknet@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1.3",
+        "pimple/pimple": "^3.0",
+        "symfony/event-dispatcher": "^7.0",
+        "symfony/http-foundation": "^7.0",
+        "symfony/http-kernel": "^7.0",
+        "symfony/routing": "^7.0"
+    },
+    "replace": {
+        "silex/api": "self.version",
+        "silex/providers": "self.version"
+    },
+    "autoload": {
+        "psr-4": { "Silex\\": "src/Silex" }
+    },
+    "autoload-dev" : {
+        "psr-4": { "Silex\\Tests\\" : "tests/Silex/Tests" }
+    }
+}
