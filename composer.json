@@ -18,6 +18,9 @@
         "symfony/http-kernel": "^7.0",
         "symfony/routing": "^7.0"
     },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^7.0"
+    },
     "replace": {
         "silex/api": "self.version",
         "silex/providers": "self.version"
