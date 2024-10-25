@@ -57,7 +57,10 @@ class ConverterListener implements EventSubscriberInterface
         }
     }
 
-    public static function getSubscribedEvents()
+    /**
+     * @return array
+     */
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::CONTROLLER => 'onKernelController',

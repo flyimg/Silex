@@ -68,8 +68,8 @@ class ViewListenerWrapper
         if ($callbackReflection->getNumberOfParameters() > 0) {
             $parameters = $callbackReflection->getParameters();
             $expectedControllerResult = $parameters[0];
-
-            if ($expectedControllerResult->getClass() && (!is_object($controllerResult) || !$expectedControllerResult->getClass()->isInstance($controllerResult))) {
+            $expectedType = !$expectedControllerResult->hasType() ? null : $expectedControllerResult->getType()->getName();
+            if ($expectedType && !($controllerResult instanceof $expectedType)) {
                 return false;
             }
 

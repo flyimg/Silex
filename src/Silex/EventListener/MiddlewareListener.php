@@ -13,7 +13,7 @@ namespace Silex\EventListener;
 
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\HttpKernel\Event\ControllerEvent;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Silex\Application;
@@ -65,9 +65,9 @@ class MiddlewareListener implements EventSubscriberInterface
     /**
      * Runs after filters.
      *
-     * @param ControllerEvent $event The event to handle
+     * @param ResponseEvent $event The event to handle
      */
-    public function onKernelResponse(ControllerEvent $event)
+    public function onKernelResponse(ResponseEvent $event)
     {
         $request = $event->getRequest();
         $routeName = $request->attributes->get('_route');
@@ -85,7 +85,10 @@ class MiddlewareListener implements EventSubscriberInterface
         }
     }
 
-    public static function getSubscribedEvents()
+    /**
+     * @return array
+     */
+    public static function getSubscribedEvents(): array
     {
         return [
             // this must be executed after the late events defined with before() (and their priority is -512)
