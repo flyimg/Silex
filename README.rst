@@ -1,71 +1,67 @@
-Silex, a simple Web Framework
-=============================
+# Flyimg Silex Adaptation
 
-**WARNING**: Silex is in maintenance mode only. Ends of life is set to June
-2018. Read more on `Symfony's blog <http://symfony.com/blog/the-end-of-silex>`_.
+This repository hosts a customized fork of the [Silex micro-framework](https://silex.symfony.com/), adapted specifically for Flyimg's image processing and service needs. 
+This version replaces outdated Silex components with the latest Symfony components to ensure compatibility, security, and future-proof functionality.
 
-Silex is a PHP micro-framework to develop websites based on `Symfony
-components`_:
+## Overview
 
-.. code-block:: php
+Silex was a popular micro-framework for PHP projects, particularly suited for lightweight applications and services. However, as Silex is now deprecated, this repository provides a maintained, Flyimg-specific adaptation that retains the simplicity of Silex while integrating the latest Symfony components.
 
-    <?php
+## Key Adaptations
 
-    require_once __DIR__.'/../vendor/autoload.php';
+1. **Symfony Component Upgrades**: Replaced outdated Silex components with their latest Symfony equivalents for performance and security improvements.
+2. **Flyimg Customizations**: Optimized for Flyimg’s image processing requirements, including community-driven features and performance tweaks.
+3. **Dependency Modernization**: Updated package dependencies to align with current PHP best practices and Flyimg’s specific use cases.
 
-    $app = new Silex\Application();
+## Getting Started
 
-    $app->get('/hello/{name}', function ($name) use ($app) {
-      return 'Hello '.$app->escape($name);
-    });
+To get started with this adapted Silex fork, clone this repository and install dependencies using [Composer](https://getcomposer.org/):
 
-    $app->run();
+```bash
+git clone https://github.com/Flyimg/Silex.git
+cd Silex
+composer install
+```
 
-Silex works with PHP 7.1.3 or later.
+## Requirements
 
-Installation
-------------
+- PHP >= 7.4 (or as required by your project)
+- Composer for dependency management
 
-The recommended way to install Silex is through `Composer`_:
+## Basic Usage
 
-.. code-block:: bash
+This adapted version remains compatible with the original Silex service setup, so most Silex-based applications can run with minimal code changes.
 
-    composer require silex/silex "~2.0"
+Define services and route controllers in your application using the familiar Silex structure.
+Register any required Symfony services in app.php to take advantage of the latest features and integrations.
+For example:
 
-Alternatively, you can download the `silex.zip`_ file and extract it.
+```php
+$app = new Silex\Application();
 
-More Information
-----------------
+$app->register(new Symfony\Component\HttpFoundation\Service\UrlGeneratorServiceProvider());
+$app->get('/', function () {
+    return "Welcome to the Flyimg Silex adaptation!";
+});
 
-Read the `documentation`_ for more information and `changelog
-<doc/changelog.rst>`_ for upgrading information.
+$app->run();
+```
 
-Tests
------
+## Configuration and Customization
 
-To run the test suite, you need `Composer`_ and `PHPUnit`_:
+Configuration settings can be adjusted in the config/ directory to suit your environment and Flyimg’s particular needs.
 
-.. code-block:: bash
 
-    composer install
-    phpunit
+## Contributing
 
-Support
--------
+We welcome contributions to enhance this fork! Please fork the repository, make your changes, and submit a pull request. Ensure all changes are tested and documented, as applicable.
 
-If you have a configuration problem use the `silex tag`_ on StackOverflow to ask a question.
+1. Fork this repository
+2. Create a new feature branch (git checkout -b feature/YourFeature)
+3. Commit your changes
+Push to the branch (git push origin feature/YourFeature)
+4. Open a pull request
 
-If you think there is an actual problem in Silex, please `open an issue`_ if there isn't one already created.
+##  License
 
-License
--------
-
-Silex is licensed under the MIT license.
-
-.. _Symfony components: http://symfony.com
-.. _Composer:           http://getcomposer.org
-.. _PHPUnit:            https://phpunit.de
-.. _silex.zip:          http://silex.sensiolabs.org/download
-.. _documentation:      http://silex.sensiolabs.org/documentation
-.. _silex tag:          https://stackoverflow.com/questions/tagged/silex
-.. _open an issue:      https://github.com/silexphp/Silex/issues/new
+This project is licensed under the MIT License. See the LICENSE file for details.
