@@ -25,7 +25,7 @@ composer install
 
 ## Requirements
 
-- PHP >= 7.4 (or as required by your project)
+- PHP >= 8.1.3 (or as required by your project)
 - Composer for dependency management
 
 ## Basic Usage
